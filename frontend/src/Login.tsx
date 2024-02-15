@@ -69,7 +69,8 @@ function Login(){
                                         setStep(2);
                                         const hash = create_hash(password);
                                         const user_id=userid.trim();
-                                        const response = await axios.post('http://localhost:3000/',
+                                        //@ts-ignore
+                                        const response = await axios.post(process.env.BACKENDAPI_URL,
                                             {userid: user_id, password_hash: hash},
                                         ).catch((error)=>{
                                                             alert(error.response.data.message)
@@ -122,7 +123,7 @@ function Login(){
     
 
     return(
-        <div style={{backgroundImage: 'url("/src/assets/back4.jpeg")', backgroundSize:"100% 100%", width:"100vw", height:"100vh"}}>
+        <div style={{backgroundImage: 'url(./src/assets/back4.jpeg)', backgroundSize:"100% 100%", width:"100vw", height:"100vh"}}>
             <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 {step == 1? <Input />: step==2? <Loader />: <Data />}
             </div>
