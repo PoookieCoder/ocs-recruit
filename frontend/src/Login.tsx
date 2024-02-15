@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import md5 from 'md5'
-import {Button, Card, Typography, TextField, InputAdornment, OutlinedInput, IconButton, InputLabel, FormControl, CircularProgress, Table, TableRow, TableBody, TableHead,TableCell} from '@mui/material'
+import {Button, Card, Typography, TextField, InputAdornment, OutlinedInput, IconButton, InputLabel, FormControl, CircularProgress, Table, TableRow, TableBody, TableHead,TableCell,} from '@mui/material'
 import {Visibility, VisibilityOff, KeyboardBackspace} from '@mui/icons-material'
 import { Navigate } from 'react-router-dom'
 
@@ -123,7 +123,7 @@ function Login(){
     
 
     return(
-        <div style={{backgroundImage: 'url("/src/assets/back4.jpeg")', backgroundSize:"100% 100%", width:"100vw", height:"100vh"}}>
+        <div style={{backgroundImage: 'url(./src/assets/back4.jpeg)', backgroundSize:"100% 100%", width:"100vw", height:"100vh"}}>
             <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 {step == 1? <Input />: step==2? <Loader />: <Data />}
             </div>

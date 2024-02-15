@@ -28,39 +28,39 @@ router.post('/', async (req, res)=>{
     }   
 })
 
-router.post('/signup', async (req, res)=>{
-    const { userid, password_hash, role } = req.body;
-    try {
-        await prisma.users.create({
-            data: {
-                userid,
-                password_hash,
-                role
-            }
-        });
-        res.status(201).json({ message: 'User created successfully' });
-    } catch (err) {
-        res.status(400).json({ message: 'User already exists with the provided userid' });
-    }
-})
+// router.post('/signup', async (req, res)=>{
+//     const { userid, password_hash, role } = req.body;
+//     try {
+//         await prisma.users.create({
+//             data: {
+//                 userid,
+//                 password_hash,
+//                 role
+//             }
+//         });
+//         res.status(201).json({ message: 'User created successfully' });
+//     } catch (err) {
+//         res.status(400).json({ message: 'User already exists with the provided userid' });
+//     }
+// })
 
-router.put('/upd', async (req, res)=>{
-    const { userid, password_hash, role } = req.body;
-    try {
-        await prisma.users.update({
-            where: {
-                userid
-            },
-            data: {
-                userid,
-                password_hash,
-                role
-            }
-        });
-        res.status(201).json({ message: 'User updated successfully' });
-    } catch (err) {
-        res.status(400).json({ message: 'User does not exist' });
-    }
-})
+// router.put('/upd', async (req, res)=>{
+//     const { userid, password_hash, role } = req.body;
+//     try {
+//         await prisma.users.update({
+//             where: {
+//                 userid
+//             },
+//             data: {
+//                 userid,
+//                 password_hash,
+//                 role
+//             }
+//         });
+//         res.status(201).json({ message: 'User updated successfully' });
+//     } catch (err) {
+//         res.status(400).json({ message: 'User does not exist' });
+//     }
+// })
 
 export default router;
