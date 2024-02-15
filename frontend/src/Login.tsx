@@ -69,7 +69,8 @@ function Login(){
                                         setStep(2);
                                         const hash = create_hash(password);
                                         const user_id=userid.trim();
-                                        const response = await axios.post('http://localhost:3000/',
+                                        //@ts-ignore
+                                        const response = await axios.post(process.env.BACKENDAPI_URL,
                                             {userid: user_id, password_hash: hash},
                                         ).catch((error)=>{
                                                             alert(error.response.data.message)
