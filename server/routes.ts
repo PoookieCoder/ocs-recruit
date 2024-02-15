@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 const router = express.Router();
 const prisma = new PrismaClient();
 
-router.get('/', async (req, res)=>{
+router.post('/', async (req, res)=>{
     const { userid, password_hash } = req.body;
     const user = await prisma.users.findUnique({
         where : {userid}
@@ -12,17 +12,20 @@ router.get('/', async (req, res)=>{
     if (user !== null){
         if(user.password_hash == password_hash){
             if(user.role == 'admin'){
-                const users = prisma.users.findMany({})
+                const users = await prisma.users.findMany({})
                 res.status(200).json({users})
             }
-            else
-                res.status(200).json({users: user})
+            else{
+                res.status(200).json({users: [user]})
+            }
         }
-    else 
-        res.status(400).json({message: 'Incorrect username or password' })
+        else{
+            res.status(400).json({message: 'Incorrect username or password' })
+        }
     }
-    else    
-        res.status(400).json({message: 'User not find. Sign Up first'})
+    else{
+        res.status(400).json({message: 'User does not exist.'})
+    }   
 })
 
 router.post('/signup', async (req, res)=>{
