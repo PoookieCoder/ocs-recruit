@@ -70,7 +70,7 @@ function Login(){
                                         const hash = create_hash(password);
                                         const user_id=userid.trim();
                                         //@ts-ignore
-                                        const response = await axios.post(process.env.BACKENDAPI_URL,
+                                        const response = await axios.post('https://',
                                             {userid: user_id, password_hash: hash},
                                         ).catch((error)=>{
                                                             alert(error.response.data.message)

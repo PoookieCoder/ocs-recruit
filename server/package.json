@@ -5,10 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.ts",
-    "build": "tsc -b",
+    "build": "rimraf dist && tsc",
+    "ts.check":"tsc --project tsconfig.json",
+    "add-build":"git add dist",
     "postinstall": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,6 +31,7 @@
     "@types/cors": "^2.8.17",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "rimraf": "^5.0.5"
   }
 }
