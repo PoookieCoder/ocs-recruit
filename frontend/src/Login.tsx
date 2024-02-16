@@ -123,7 +123,7 @@ function Login(){
     
 
     return(
-        <div style={{backgroundImage: 'url(./src/assets/back4.jpeg)', backgroundSize:"100% 100%", width:"100vw", height:"100vh"}}>
+        <div style={{backgroundImage: 'url("https://i.ibb.co/VCTQRny/back4.jpg")', backgroundSize:"100% 100%", width:"100vw", height:"100vh"}}>
             <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 {step == 1? <Input />: step==2? <Loader />: <Data />}
             </div>
