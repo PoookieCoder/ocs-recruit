@@ -28,6 +28,9 @@ router.post('/', async (req, res)=>{
     }   
 })
 
+router.get("/check", (req, res)=>{
+    res.send("Server is running succesfully")
+})
 // router.post('/signup', async (req, res)=>{
 //     const { userid, password_hash, role } = req.body;
 //     try {
