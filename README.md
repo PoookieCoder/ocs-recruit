@@ -1,7 +1,5 @@
 # OCS-recruitment Server Client 
 
-**By UTKARSH** 
-
 ## Tech Stack
 
 This project is built using the latest Tech Stack:
